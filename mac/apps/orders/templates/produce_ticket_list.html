@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <form method="GET">
+                {% bootstrap_form filter.form %}
+                <button type="submit" class="btn btn-primary">Поиск</button>
+            </form>
+
+            <br><a href="{% url 'produce_ticket_create' %}"><button type="button" class="btn btn-primary mt-4">Сообщить о производстве</button></a>
+        </div>
+
+        <div class="col-md-9">
+            {% if object_list.count == 0 %}
+                Таких заявок нет. Попробуйте изменить параметры фильтрации или оставьте заявку на производство.
+                Так Вы подскажете мейкерам, что именно вам нужно и они смогут скорректировать производство.
+            {% endif %}
+            <ul class="list-group ">
+                {% for ticket in object_list %}
+                    <li class="list-group-item">
+                        <a href="{% url "produce_ticket" ticket.pk %}">
+                            {% include "produce_ticket_item.html" %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

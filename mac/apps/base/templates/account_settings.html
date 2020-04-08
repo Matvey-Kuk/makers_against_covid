@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block body_class %}account account-settings{% endblock %}
+
+{% block head_title %}Настройка профиля{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-5">
+            <form method="POST" action="{% url "account_settings" %}">
+                <legend>Настройка профиля</legend>
+                {% csrf_token %}
+                {%  bootstrap_form form %}
+                <button class="btn btn-primary" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

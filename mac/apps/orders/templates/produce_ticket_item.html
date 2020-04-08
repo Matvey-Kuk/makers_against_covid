@@ -1,0 +1,6 @@
+{{ ticket.get_city_cached_display }}, "{{ ticket.get_product_display }}", {{ ticket.amount }} шт. по адресу: {{ ticket.address }}<br>
+{% if  ticket.is_production_ready %}
+    <div style="color: red;">Произведено, {{ ticket.get_logistics_display | lower }}.</div>
+{% else %}
+    Производится, {{ ticket.get_logistics_display | lower }} когда будет готово.
+{% endif %}

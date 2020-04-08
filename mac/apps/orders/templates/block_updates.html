@@ -1,0 +1,19 @@
+{% for update in ticket.updates.all %}
+    <div class="card mt-2">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% with author=ticket.author %}
+                        {% include "author_card.html" %}
+                    {% endwith %}
+                </div>
+                <div class="col-sm-6">
+                    Комментарий: {{ update.comment }}
+                    {% if update.type != 'comment' %}
+                        <div style="color: red">Обновление от автора: {{ update.get_type_display }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

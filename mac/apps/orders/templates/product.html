@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    {% block description %}{% endblock %}
+
+    <br><a href="{% url 'request_ticket_create' %}"><button type="button" class="btn btn-primary mt-4">Оставить заявку на "{{ product.name_ru }}"</button></a>
+    <br><a href="{% url 'produce_ticket_create' %}"><button type="button" class="btn btn-primary mt-4">Сообщить о том, что Вы изготовили "{{ product.name_ru }}"</button></a>
+
+    <p class="pt-4">
+        Чтобы добавить тип изделия, или изменить описание, пожалуйста, подготовьте Pull Request, либо попросите помощи в <a href="https://t.me/makers_against_covid">ТГ чате</a>.
+    </p>
+{% endblock %}

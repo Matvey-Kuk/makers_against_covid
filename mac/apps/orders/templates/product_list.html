@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for product in products %}
+            <li class="list-group-item"><a href="{% url 'product' product.id %}"> {{ product.name_ru }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <p class="pt-4">
+        Чтобы добавить тип изделия, или изменить описание, пожалуйста, подготовьте Pull Request, либо попросите помощи в <a href="https://t.me/makers_against_covid">ТГ чате</a>.
+    </p>
+{% endblock %}

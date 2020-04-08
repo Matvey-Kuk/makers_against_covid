@@ -1,0 +1,61 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block bootstrap4_content %}
+    <div class="container">
+
+    <a href="https://github.com/Matvey-Kuk/makers_against_covid"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
+            <a class="navbar-brand" href="/">Makers Against COVID-19</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-item nav-link" href="{% url "products_list" %}">Изделия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="{% url "produce_tickets_list" %}">В работе / готово</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="{% url "request_tickets_list" %}">Заявки на производство</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ user }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url "account_settings" %}">Настройка профиля</a>
+                                <a class="dropdown-item" href="{% url "account_password" %}">Сменить Пароль</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url "account_logout" %}">Выйти</a>
+                            </div>
+                        </li>
+                    {%  else %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="{% url "login" %}">Вход</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="{% url "signup" %}">Регистрация</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        <div class="p-4">
+            {% block body %}(no content){% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

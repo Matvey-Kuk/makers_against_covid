@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+
+    <h1>Сообщить о планах производства</h1>
+    {% if not request.user.is_maker_account_full %}
+    <div class="alert alert-primary" role="alert">
+        Пожалуйста, перед тем, как создавать заявку, полностью заполните свой профиль <a href="{% url 'account_settings' %}">вот тут</a>. Иначе ничего не выйдет. Спасибо!
+    </div>
+    {% endif %}
+    <p>
+    Пожалуйста, обратите внимание:<br>
+    1) На кажду партию каждого изделия нужно создавать отдельную заявку.<br>
+    2) Не планируйте слишком маленькие (меньше 10) и слишком большие партии, чтобы можно было распределить заявки между нуждающимися. Большие партии лучше нарезать на заявки по ~100 штук.
+    </p>
+
+    <div class="row">
+        <div class="col-12">
+            <form method="POST" action="" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button type="submit" class="btn btn-primary">Создать Заявку</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
