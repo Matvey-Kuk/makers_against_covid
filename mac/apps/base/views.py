@@ -15,7 +15,7 @@ from apps.orders.models import Ticket, PRODUCTS
 from .forms import SignupForm, SettingsForm
 
 
-# @method_decorator(cache_page(60 * 5), name='dispatch')
+@method_decorator(cache_page(60 * 5), name='dispatch')
 class IndexView(TemplateView):
     template_name = "index.html"
 
