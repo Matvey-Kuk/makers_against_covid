@@ -2,3 +2,4 @@ Django==3.0.5
 django-bootstrap4==1.1.1
 django-user-accounts==3.0.0
 django-filter==2.2.0
+Pillow==7.1.1
