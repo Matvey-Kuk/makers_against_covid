@@ -155,3 +155,5 @@ STATIC_URL = '/static/'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+ACCOUNT_EMAIL_UNIQUE = True
