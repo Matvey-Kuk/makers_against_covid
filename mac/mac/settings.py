@@ -27,7 +27,7 @@ AUTH_USER_MODEL = 'base.User'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["makers-against-c.com"]
+ALLOWED_HOSTS = ["makers-against-c.com", "localhost"]
 
 SITE_ID = 1
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.orders',
     'account',
     'django_filters',
+    'debug_toolbar',
 ]
 
 BOOTSTRAP4 = {
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "account.middleware.LocaleMiddleware",
     "account.middleware.TimezoneMiddleware",
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ACCOUNT_EMAIL_UNIQUE = True
@@ -149,3 +151,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
