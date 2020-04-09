@@ -8,6 +8,9 @@ from account.mixins import LoginRequiredMixin
 from .filters import TicketFilter, RequestTicketFilter
 from .models import PRODUCTS, Ticket, TicketUpdate
 from .forms import ProduceTicketUpdateForm, ProduceTicketUpdateAuthorForm
+from .tables import RequestTicketTable
+
+from django_tables2.views import SingleTableMixin
 
 
 class ProductListView(TemplateView):
@@ -80,10 +83,11 @@ class ProduceTicketList(FilterView):
         return super().get_queryset().filter(type=Ticket.TYPE_PRODUCE)
 
 
-class RequestTicketList(FilterView):
+class RequestTicketList(SingleTableMixin, FilterView):
     model = Ticket
     template_name = "request_ticket_list.html"
     filterset_class = RequestTicketFilter
+    table_class = RequestTicketTable
 
     def get_queryset(self):
         return super().get_queryset().filter(type=Ticket.TYPE_REQUEST)
