@@ -91,4 +91,10 @@
     </p>
     Вдохновлен инициативой: <a href="hhttp://makersvscovid.ru/">http://makersvscovid.ru/</a>.<br>
     Чат в TG: <a href="https://t.me/makers_against_covid">@makers_against_covid</a><br><br>
+    <p>
+        Помогли проекту:<br>
+        {% for contributor in contributors %}
+            {{ contributor }}<br>
+        {% endfor %}
+    </p>
 {% endblock %}

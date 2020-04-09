@@ -46,6 +46,7 @@ class IndexView(TemplateView):
 
         context['requests_statistics'] = requests_statistics
         context['produce_statistics'] = produce_statistics
+        context['contributors'] = open("CONTRIBUTORS.txt", "r")
 
         return context
 
