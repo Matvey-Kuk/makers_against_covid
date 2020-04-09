@@ -12,7 +12,7 @@
             <form id="signup_form" method="post" action="{% url "signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <legend>Регистрация</legend>
                 {% csrf_token %}
-                {%  bootstrap_form form %}
+                {%  bootstrap_form form alert_error_type='all' %}
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
