@@ -7,19 +7,44 @@ from django.contrib.auth import get_user_model
 Product = namedtuple('Product', [
     'id',
     'name_ru',
-    'description_template'
+    'description_template',
+    'description',
+    'image_url',
+    'components'
 ])
 
 PRODUCTS = [
     Product(
         id="shield",
         name_ru="Защитный Экран",
-        description_template="shield"
+        description_template="sheet",
+        description="Предназначен для защиты лица от жидких и твердых веществ. Она состоит из оправы, белой опоры и щитка в виде прозрачной пленки.",
+        image_url="https://cleanroomshop.ru/upload/iblock/b54/schitok_1.jpg",
+        components='Пластик'
     ),
     Product(
         id="valve",
         name_ru="Клапан",
-        description_template="valve"
+        description_template="valve",
+        description="Клапаны применяются в аппаратах ИВЛ совместно с аэрозольными масками для дозированной оксигенотерапии и обеспечивают пониженные концентрации подаваемого кислорода.",
+        image_url="https://lh3.googleusercontent.com/proxy/Dv-Eg0jxAN2H7lnNQ3CIZ60xRKgjC7FSlw4PPmot8-K37riJ_9Z7YqNuzrT7mBssMZRXjl3X9midUi_AHIB2IM_FCCgyzQ",
+        components='Пластик',
+    ),
+    Product(
+        id="adapter_for_PMM88",
+        name_ru="Деталь переходник с фильтра для аппарата ИВЛ на маску ППМ-88.",
+        description_template="valve",
+        description="Деталь переходник с фильтра для аппарата ИВЛ на маску ППМ-88.",
+        image_url="https://cdn1.imggmi.com/uploads/2020/4/10/7ef00e17dab28d4bd0d56348889dc381-full.png",
+        components='PetG со 100% заполнением!',
+    ),
+    Product(
+        id="adapter_for_SUBEA",
+        name_ru="Деталь переходник с фильтра для аппарата ИВЛ на маску для снорклинга компании SUBEA.",
+        description_template="valve",
+        description="Деталь переходник с фильтра для аппарата ИВЛ на маску для снорклинга компании SUBEA.",
+        image_url="https://cdn1.imggmi.com/uploads/2020/4/10/552506c6bb57cbc5300324781706c900-full.png",
+        components='PetG со 100% заполнением!',
     )
 ]
 
