@@ -3,7 +3,12 @@
 {% block body %}
     <ul class="list-group">
         {% for product in products %}
-            <li class="list-group-item"><a href="{% url 'product' product.id %}"> {{ product.name_ru }}</a></li>
+            <li class="list-group-item">
+                <image src="{{ product.image_url }}" width="200" ></image>
+                 <a href="{% url 'product' product.id %}"> {{ product.name_ru }}</a>
+                <div>Компоненты/материалы: <strong>{{product.components}}</strong></div>
+                <div> {{ product.description }} </div>
+            </li>
         {% endfor %}
     </ul>
 
