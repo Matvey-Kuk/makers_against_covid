@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'account',
     'django_filters',
     'debug_toolbar',
+    'django_tables2',
 ]
 
 BOOTSTRAP4 = {

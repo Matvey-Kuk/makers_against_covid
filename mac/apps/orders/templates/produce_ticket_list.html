@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load bootstrap4 %}
+{% load render_table from django_tables2 %}
 
 {% block body %}
 
@@ -20,15 +21,7 @@
                 Таких заявок нет. Попробуйте изменить параметры фильтрации или оставьте заявку на производство.
                 Так Вы подскажете мейкерам, что именно вам нужно и они смогут скорректировать производство.
             {% endif %}
-            <ul class="list-group ">
-                {% for ticket in object_list %}
-                    <li class="list-group-item">
-                        <a href="{% url "produce_ticket" ticket.pk %}">
-                            {% include "produce_ticket_item.html" %}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% render_table table %}
         </div>
 
     </div>

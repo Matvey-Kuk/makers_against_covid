@@ -67,8 +67,8 @@ class Ticket(models.Model):
     )
 
     LOGISTICS_CHOICES = [
-        ('can_deliver', "Могу доставить по адресу"),
-        ('need_delivery', "Нужно чтобы кто-то привез/забрал"),
+        ("can_deliver", "Могу доставить"),
+        ("need_delivery", "Нужен курьер"),
     ]
 
     logistics = models.TextField(
