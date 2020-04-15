@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_prometheus.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('MYSQL_DB_NAME'),
         'USER': os.environ.get('MYSQL_USER'),
         'PASSWORD': os.environ['MYSQL_PASSWORD'],
