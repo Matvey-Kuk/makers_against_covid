@@ -4,16 +4,16 @@
 
 {% block body_class %}account account-delete{% endblock %}
 
-{% block head_title %}{% trans "Delete Account" %}{% endblock %}
+{% block head_title %}{% trans "Удалить аккаунт" %}{% endblock %}
 
 {% block body %}
-    <h1>{% trans "Delete Account" %}</h1>
+    <h1>{% trans "Удалить аккаунт" %}</h1>
     
-    <p>{% blocktrans %}If you go ahead and delete your account, your information will be <b>expunged within {{ ACCOUNT_DELETION_EXPUNGE_HOURS }} hours</b>.{% endblocktrans %}</p>
-    
+    <p>{% blocktrans %}Если вы удалите свой аккаунт, ваша информация будет <b>удалена в течении {{ ACCOUNT_DELETION_EXPUNGE_HOURS }} часов</b>.{% endblocktrans %}</p>
+
     <form method="post" action="{% url "account_delete" %}" autocapitalize="off">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">{% trans "Delete My Account" %}</button>
+        <button type="submit" class="btn btn-danger">{% trans "Удалить мой аккаунт" %}</button>
     </form>
     
 {% endblock %}

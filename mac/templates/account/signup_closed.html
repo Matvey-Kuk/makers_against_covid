@@ -2,13 +2,13 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign up" %}{% endblock %}
+{% block head_title %}{% trans "Зарегистрироваться" %}{% endblock %}
 
 {% block body %}
-    <h1>{% trans "This site is in private beta" %}</h1>
-    <p>{% blocktrans %}If you have signup code you can enter it below.{% endblocktrans %}</p>
+    <h1>{% trans "Этот сайт находится в частной бета-версии" %}</h1>
+    <p>{% blocktrans %}Если у вас есть код регистрации, вы можете ввести его ниже.{% endblocktrans %}</p>
     <form method="get" action="">
-        <div><input type="text" name="code" placeholder="{% trans 'Your signup code...' %}" /></div>
+        <div><input type="text" name="code" placeholder="{% trans 'Ваш код регистрации...' %}" /></div>
         <div><input type="submit" class="btn btn-primary"></div>
     </form>
 {% endblock %}

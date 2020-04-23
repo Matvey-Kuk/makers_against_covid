@@ -4,7 +4,7 @@
 {% load i18n %}
 {% load bootstrap4 %}
 
-{% block head_title %}{% trans "Sign up" %}{% endblock %}
+{% block head_title %}{% trans "Зарегистрироваться" %}{% endblock %}
 
 {% block body %}
     <div class="row">
@@ -16,11 +16,11 @@
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
+                <button type="submit" class="btn btn-primary">{% trans "Зарегистрироваться" %}</button>
             </form>
             <p class="login-signup">
                 <small>
-                    {% trans "Already have an account?" %}  <strong><a href="{% urlnext 'account_login' %}">{% trans "Log in" %}</a></strong>
+                    {% trans "Уже есть аккаунт?" %}  <strong><a href="{% urlnext 'account_login' %}">{% trans "Войти" %}</a></strong>
                 </small>
             </p>
         </div>
