@@ -7,22 +7,28 @@
 {% block head_title %}{% trans "Войти" %}{% endblock %}
 
 {% block body %}
-    <div class="row">
+    <div class="row text-center">
+        <div class="col-md-4"></div>
         <div class="col-md-4">
-            <form method="POST" action="{% url "login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+            <form method="POST" action="{% url "login" %}" autocapitalize="off"
+                    {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <legend>Войти</legend>
                 {% csrf_token %}
-                {%  bootstrap_form form %}
+                {% bootstrap_form form %}
                 {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}"
+                           value="{{ redirect_field_value }}"/>
                 {% endif %}
-                <button type="submit" class="btn btn-primary">{% trans "Войти" %}</button>
-                <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Забыли пароль?" %}</a>
+                <button type="submit"
+                        class="btn btn-primary">{% trans "Войти" %}</button>
+                <a href="{% url "account_password_reset" %}"
+                   class="btn btn-link">{% trans "Забыли пароль?" %}</a>
             </form>
             {% if ACCOUNT_OPEN_SIGNUP %}
                 <p class="login-signup">
                     <small>
-                        Нет аккаунта?  <strong><a href="{% urlnext 'signup' %}">Зарегистрируйтесь! :)</a></strong>
+                        Нет аккаунта? <strong><a href="{% urlnext 'signup' %}">Зарегистрируйтесь!
+                        :)</a></strong>
                     </small>
                 </p>
             {% endif %}
@@ -36,7 +42,7 @@
 {% block scripts %}
     {{ block.super }}
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#id_username').focus();
         });
     </script>

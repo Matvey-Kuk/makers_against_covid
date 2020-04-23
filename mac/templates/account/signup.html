@@ -7,7 +7,8 @@
 {% block head_title %}{% trans "Зарегистрироваться" %}{% endblock %}
 
 {% block body %}
-    <div class="row">
+    <div class="row text-center">
+    <div class="col-md-4"></div>
         <div class="col-md-4">
             <form id="signup_form" method="post" action="{% url "signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <legend>Регистрация</legend>
