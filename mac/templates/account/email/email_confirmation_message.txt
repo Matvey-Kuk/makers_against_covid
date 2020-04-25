@@ -1,6 +1,6 @@
-{% load i18n account_tags %}{% blocktrans with site_name=current_site.name %}A user on {{ site_name }} has created an account using this email address.
+{% load i18n account_tags %}{% blocktrans with site_name=current_site.name %}Пользователь создал учетную запись на сайте {{ site_name }} , используя этот адрес электронной почты.
 
-To confirm this email address, go to {{ activate_url }}
+Для подтверждения аккаунта перейдите по ссылке {{ activate_url }}
 
-If you did not sign up for this site, you can ignore this message.
+Если вы не регистрировались на этом сайте, просто проигнорируйте это сообщение
 {% endblocktrans %}
